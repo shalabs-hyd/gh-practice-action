@@ -8,7 +8,7 @@ jobs:
       - name: run command
         id: tf_net_apply
         shell: bash
-        run: ls -lrt /tmp0 > /dev/null 2>&1
+        run: ls -lrt /tmp > /dev/null 2>&1
       - name: condition command
         if: failure() && steps.tf_net_apply.outcome != 'success'
         shell: bash
