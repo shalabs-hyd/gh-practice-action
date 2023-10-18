@@ -1,0 +1,14 @@
+name: ConditionTest
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run command
+        id: tf_net_apply
+        shell: bash
+        run: ls -lrt /tmp0 > /dev/null 2>&1
+      - name: condition command
+        if: failure() && steps.tf_net_apply.outcome != 'success'
+        shell: bash
+        run: echo "the directory /tmp0 does not exist"
