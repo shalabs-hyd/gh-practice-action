@@ -1,0 +1,18 @@
+name: Firt-Workflow
+
+on:
+  - workflow_dispatch
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Welcome message
+        run: echo "Welcome to the first workflow!"
+      - name: List files
+        run: ls -lrt
+      - name: Print working directory
+        run: pwd
+        
